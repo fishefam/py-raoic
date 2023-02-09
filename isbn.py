@@ -5,7 +5,8 @@ from typing import List
 __author__ = 'Manh Truong Nguyen'
 __license__ = 'MIT License'
 
-EVEN_DIGIT_INDEXES = (1, 3, 5, 7, 9)  # Position (2, 4, 6, 8, 10) in ISBN number
+# Position (2, 4, 6, 8, 10) in ISBN number
+EVEN_DIGIT_INDEXES = (1, 3, 5, 7, 9)
 ODD_DIGIT_INDEXES = (0, 2, 4, 6, 8)  # Position (1, 3, 5, 7, 9) in ISBN number
 
 

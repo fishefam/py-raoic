@@ -1,9 +1,10 @@
 ''' Basic unit tests for sin, upc, isbn modules '''
 
 from typing import List, Tuple
+
+import isbn
 import sin
 import upc
-import isbn
 
 # Test cases of known valid numbers
 SINS = ('732482047', '428804108', '744762741')
@@ -33,7 +34,8 @@ if __name__ == '__main__':
     print('================== Testing SIN module ==================')
     sin_tests = flatten([generate_number_with_missing_digit(x) for x in SINS])
     for i_sin, sin_test in enumerate(sin_tests):
-        missing_digit: int | str = sin.find_missing_digit(sin_test[0], sin_test[2])
+        missing_digit: int | str = sin.find_missing_digit(
+            sin_test[0], sin_test[2])
         if missing_digit == sin_test[1]:
             print(f'Passed test {i_sin + 1}')
         if missing_digit != sin_test[1]:
@@ -53,7 +55,8 @@ if __name__ == '__main__':
 
     # ISBN unit test
     print('================== Testing ISBN module ==================')
-    isbn_tests = flatten([generate_number_with_missing_digit(x) for x in ISBNS])
+    isbn_tests = flatten([generate_number_with_missing_digit(x)
+                         for x in ISBNS])
     for i_isbn, isbn_test in enumerate(isbn_tests):
         missing_digit = isbn.find_missing_digit(isbn_test[0], isbn_test[2])
         if missing_digit == isbn_test[1]:

@@ -6,9 +6,9 @@ Executes __test__.py for Unit testing with basic cases
 
 from typing import List, Literal, Tuple
 
+import isbn
 import sin
 import upc
-import isbn
 
 __author__ = 'Manh Truong Nguyen'
 __license__ = 'MIT License'
@@ -29,7 +29,8 @@ def get_missing_digit_index(input_number: str) -> int:
     Return the index of the missing digit in the input number
     assuming the input number only contains ONE missing digit
     '''
-    digits: List[int | str] = [int(x) if x.isdigit() else x for x in input_number]
+    digits: List[int | str] = [
+        int(x) if x.isdigit() else x for x in input_number]
     result: int = -1
     for i, digit in enumerate(digits):
         if isinstance(digit, str):
@@ -48,12 +49,14 @@ def is_valid_number(input_number: str, valid_length: int, is_isbn=False) -> Lite
            -2 if the input number has invalid length
     '''
     non_digit_count: int = 0
-    chars: List[int | str] = [int(x) if x.isdigit() else x for x in input_number]
+    chars: List[int | str] = [
+        int(x) if x.isdigit() else x for x in input_number]
     for char_index, char in enumerate(chars):
         valid_isbn_x_input = (
             is_isbn and chars[-1] == 'X' and
             char_index != (len(chars) - 1) and not isinstance(char, int))
-        valid_isbn_non_x_input = (is_isbn and chars[-1] != 'X' and not isinstance(char, int))
+        valid_isbn_non_x_input = (
+            is_isbn and chars[-1] != 'X' and not isinstance(char, int))
         valid_non_isbn_input = (not is_isbn and not isinstance(char, int))
         if valid_non_isbn_input or valid_isbn_x_input or valid_isbn_non_x_input:
             non_digit_count += 1
@@ -87,7 +90,8 @@ def loop_number_input(valid_length: int,
     user_input: str = ''
     while True:
         user_input = input(input_instruction)
-        checked_input: Literal[-2, -1, 0, 1] = is_valid_number(user_input, valid_length, is_isbn)
+        checked_input: Literal[-2, -1, 0,
+                               1] = is_valid_number(user_input, valid_length, is_isbn)
         if checked_input == -2:
             print(f'{err}: Number has invalid length\n')
         if checked_input == -1:

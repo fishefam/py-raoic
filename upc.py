@@ -6,8 +6,10 @@ __author__ = 'Manh Truong Nguyen'
 __license__ = 'MIT License'
 
 
-EVEN_DIGIT_INDEXES = (1, 3, 5, 7, 9, 11)  # Position (2, 4, 6, 8, 10, 12) in UPC code
-ODD_DIGIT_INDEXES = (0, 2, 4, 6, 8, 10)  # Position (1, 3, 5, 7, 9, 11) in UPC code
+# Position (2, 4, 6, 8, 10, 12) in UPC code
+EVEN_DIGIT_INDEXES = (1, 3, 5, 7, 9, 11)
+# Position (1, 3, 5, 7, 9, 11) in UPC code
+ODD_DIGIT_INDEXES = (0, 2, 4, 6, 8, 10)
 
 
 def sum_digits(digits: List[int | str], skip_index=-1) -> int:
